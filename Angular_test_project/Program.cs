@@ -15,7 +15,8 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod()
             .AllowAnyHeader());
     });
-});
+}); //uses the named policy and middleware method,
+    //allows for cross origin effects (allows access to the api)
 
 var app = builder.Build();
 
@@ -35,7 +36,7 @@ app.MapControllerRoute(
     pattern: "{controller}/{action=Index}/{id?}");
 
 app.UseCors(options =>
-          options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+          options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());  //uses the named policy and middleware method
 
 app.MapFallbackToFile("index.html"); ;
 

@@ -1,17 +1,16 @@
-/*import { apicoloursService } from '../apicolours.service';*/
 import { Component, OnInit, Inject } from '@angular/core';
 import { ColourService } from '../colour.service';
 import { Icolour } from '../models/Icolour';
 
 
-@Component({ // link the ts file with its html, css and selectpr files
+@Component({ // link the ts file with its html, css and selector files
   selector: 'app-home',
   templateUrl: './home.component.html',
   providers : []
 })
 
 export class HomeComponent implements OnInit {
-  colourlist: Icolour[] = [];
+  colourlist: Icolour[] = []; //create an array of colour interface's
   thing: any;
 
   constructor(private Colour: ColourService, @Inject('BASE_URL') baseUrl: string) //alternate way of creating a local varibale
@@ -28,7 +27,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.Colour.getList().subscribe(
       (response) => {
-        this.thing = response;
+        this.thing = response; //returns the subsciption value as an object
         this.colourlist = this.thing;
       },
       (error) => {

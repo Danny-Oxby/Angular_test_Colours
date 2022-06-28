@@ -1,19 +1,17 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ColourService {
-  //private headers: HttpHeaders;
-  readonly Url = "https://localhost:7010/";
+  readonly Url = "https://localhost:7010/"; //current backend file path
 
-  constructor(private http: HttpClient)
+  constructor(private http: HttpClient) //create and assign a private http variable
   {
-/*    this.headers = new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });*/
   }
 
   getList() {
-    return this.http.get(this.Url + "api/colour");/*, { headers: this.headers }*/
+    return this.http.get(this.Url + "api/colour"); //find the api / controller file (contorller files do not have their 'controller' tag in their url's)
   }
 }

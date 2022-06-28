@@ -7,26 +7,20 @@ namespace Angular_test_project.Controllers
     [ApiController]
     public class ColourController : ControllerBase
     {
-        [HttpPost]
+        private readonly ColourService colourService = new();
+
+        [HttpPost] //this method gets called when the post method is called
         public IActionResult Create()
         {
             return Ok("testing return on create");
         }
 
-        [HttpGet] //since it call an sql method
-        public IList<ColourModel> Get()
+        [HttpGet] //this method gets called when the get method is called
+        public IList<ColourModel> ReturnColourList()
         {
-            //List<ColourModel> colours = new List<ColourModel>();
-
-            //colours.Add(new ColourModel { colour = "red", hexvalue = "#red" });
-            //colours.Add(new ColourModel { colour = "blue", hexvalue = "#blue" });
-            //colours.Add(new ColourModel { colour = "green", hexvalue = "#green" });
-
-            //return colours;
-
             return colourService.ReturnList();
         }
-        private ColourService colourService = new ColourService();
+
     }
 }
 
