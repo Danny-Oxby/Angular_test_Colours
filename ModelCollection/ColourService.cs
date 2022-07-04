@@ -8,9 +8,9 @@ namespace ModelCollection
         {
             List<ColourModel> colours = new List<ColourModel>();
 
-            colours.Add(new ColourModel { colour = "red", hexvalue = "#red" });
-            colours.Add(new ColourModel { colour = "blue", hexvalue = "#blue" });
-            colours.Add(new ColourModel { colour = "green", hexvalue = "#green" });
+            colours.Add(new ColourModel { colour = "red", hexvalue = "#red", value = 1 });
+            colours.Add(new ColourModel { colour = "blue", hexvalue = "#blue", value = 5 });
+            colours.Add(new ColourModel { colour = "green", hexvalue = "#green", value = 10 });
 
             ColourList = colours;
         }

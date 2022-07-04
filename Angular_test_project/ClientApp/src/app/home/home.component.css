@@ -1,0 +1,18 @@
+body {
+}
+/*
+table{
+    background-color:azure;
+}*/
+
+.tr:nth-child(10) {
+  background-color: lightcoral
+}
+
+.tr:nth-child(5) {
+  background-color: lightblue
+}
+
+.tr:nth-child(0) {
+  background-color: lightgreen
+}

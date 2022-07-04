@@ -1,19 +1,22 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ColourService } from '../colour.service';
 import { Icolour } from '../models/Icolour';
+import { TextService } from '../text.service';
 
 
 @Component({ // link the ts file with its html, css and selector files
   selector: 'app-home',
   templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css'],
   providers : []
 })
 
 export class HomeComponent implements OnInit {
   colourlist: Icolour[] = []; //create an array of colour interface's
   thing: any;
+  clicktext: string = "";
 
-  constructor(private Colour: ColourService, @Inject('BASE_URL') baseUrl: string) //alternate way of creating a local varibale
+  constructor(private Colour: ColourService, private Text: TextService, @Inject('BASE_URL') baseUrl: string) //alternate way of creating a local varibale
   {
   }
     /*
@@ -33,7 +36,18 @@ export class HomeComponent implements OnInit {
       (error) => {
         console.log(error);
       });
+  }
 
+  CLickMethod() {
+    this.clicktext = "clicked";
+
+    this.Text.getList().subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      });
   }
 }
 
