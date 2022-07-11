@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ColourService } from '../colour.service';
 import { Icolour } from '../models/Icolour';
+import { ISampleModel } from '../models/SampleModel';
 import { TextService } from '../text.service';
 
 
@@ -13,6 +14,7 @@ import { TextService } from '../text.service';
 
 export class HomeComponent implements OnInit {
   colourlist: Icolour[] = []; //create an array of colour interface's
+  sampleList: ISampleModel[] = [];
   thing: any;
   clicktext: string = "";
 
@@ -36,18 +38,28 @@ export class HomeComponent implements OnInit {
       (error) => {
         console.log(error);
       });
+
+    this.Text.getBatch(528).subscribe(
+      (response) => {
+        this.thing = response; //returns the subsciption value as an object
+        this.sampleList = this.thing;
+      },
+      (error) => {
+        console.log(error);
+      });
   }
 
   CLickMethod() {
     this.clicktext = "clicked";
 
-    this.Text.getList().subscribe(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      });
+    this.Text.postString();
+    //this.Text.postString().subscribe(
+    //  (response) => {
+    //    console.log(response);
+    //  },
+    //  (error) => {
+    //    console.log(error);
+    //  });
   }
 }
 

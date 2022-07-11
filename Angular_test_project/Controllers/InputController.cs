@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ModelCollection;
+using System.Windows;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,25 +10,39 @@ namespace Angular_test_project.Controllers
     [ApiController]
     public class InputController : ControllerBase
     {
-        // GET: api/<InputController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private BatchService batch;
+        public InputController()
         {
-            return new string[] { "value1", "value2" };
+            batch = new BatchService();
         }
 
-        // GET api/<InputController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        // GET: api/<InputController>
+        [HttpGet]
+        public string Get()
         {
             return "value";
         }
 
+        // GET api/<InputController>/5
+        [HttpGet("{id}")]
+        public IList<SampleModel> Get(int id)
+        {
+            return batch.GetAllBatchSample(id);
+            //List<SampleModel> value = new List<SampleModel>();
+            //try
+            //{
+            //    value = new List<SampleModel>(batch.GetAllBatchSample(id));
+            //}
+            //catch(Exception ex)
+            //{
+            //    _ = MessageBox.Show(ex.Message);
+            //}
+        }
+
         // POST api/<InputController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] string value) //FromBody allows the values to be passed in as parameters, otherwise its passed in the route 
         {
-           string value1 = value;
         }
 
         // PUT api/<InputController>/5
