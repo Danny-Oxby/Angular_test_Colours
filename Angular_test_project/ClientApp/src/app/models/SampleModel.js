@@ -6,16 +6,16 @@ var SampleModel = /** @class */ (function () {
         this.SerialNumber = 0;
         this.sample_Id = 0;
         this.sampleType = "";
-        this.CustomerSampleWeigth = 0;
-        this.ActualSampleWeigth = 0;
-        this.Weight_Unit = "";
-        this.BarNumber = "";
-        this.ReturnSample = false;
-        this.Approved = false;
-        this.SampleCertificateNotes = "";
-        this.SampleLabNotes = "";
-        this.SampleAdminNotes = "";
-        this.CustomerSampleReference = "";
+        this.customerSampleWeigth = 0;
+        this.actualSampleWeigth = 0;
+        this.weight_Unit = "";
+        this.barNumber = "";
+        this.returnSample = false;
+        this.approved = false;
+        this.sampleCertificateNotes = "";
+        this.sampleLabNotes = "";
+        this.sampleAdminNotes = "";
+        this.customerSampleReference = "";
     }
     return SampleModel;
 }());
