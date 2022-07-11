@@ -1,9 +1,4 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { ColourService } from '../colour.service';
-import { Icolour } from '../models/Icolour';
-import { ISampleModel } from '../models/SampleModel';
-import { TextService } from '../text.service';
-
 
 @Component({ // link the ts file with its html, css and selector files
   selector: 'app-home',
@@ -13,12 +8,9 @@ import { TextService } from '../text.service';
 })
 
 export class HomeComponent implements OnInit {
-  colourlist: Icolour[] = []; //create an array of colour interface's
-  sampleList: ISampleModel[] = [];
-  thing: any;
-  clicktext: string = "";
 
-  constructor(private Colour: ColourService, private Text: TextService, @Inject('BASE_URL') baseUrl: string) //alternate way of creating a local varibale
+
+  constructor(@Inject('BASE_URL') baseUrl: string) //alternate way of creating a local varibale
   {
   }
     /*
@@ -30,37 +22,8 @@ export class HomeComponent implements OnInit {
      */
 
   ngOnInit(): void {
-    this.Colour.getList().subscribe(
-      (response) => {
-        this.thing = response; //returns the subsciption value as an object
-        this.colourlist = this.thing;
-      },
-      (error) => {
-        console.log(error);
-      });
-
-    this.Text.getBatch(528).subscribe(
-      (response) => {
-        this.thing = response; //returns the subsciption value as an object
-        this.sampleList = this.thing;
-      },
-      (error) => {
-        console.log(error);
-      });
   }
 
-  CLickMethod() {
-    this.clicktext = "clicked";
-
-    this.Text.postString();
-    //this.Text.postString().subscribe(
-    //  (response) => {
-    //    console.log(response);
-    //  },
-    //  (error) => {
-    //    console.log(error);
-    //  });
-  }
 }
 
 //this.apiColour.getPosts().subscribe(

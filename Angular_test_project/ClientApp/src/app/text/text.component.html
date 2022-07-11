@@ -1,0 +1,11 @@
+<div>
+  <ul *ngIf="sampleList">
+    <li *ngFor="let sample of sampleList">
+      <h6> t: {{sample.sample_Id}} {{sample.sampleType}} </h6>
+    </li>
+  </ul>
+
+  <button (click)="CLickMethod()">Testing Post click event</button>
+
+  <p> {{clicktext}} </p>
+</div>
