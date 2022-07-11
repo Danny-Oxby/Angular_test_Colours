@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
+import { Icolour } from './models/Icolour';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,7 @@ export class ColourService {
   {
   }
 
-  getList() {
-    return this.http.get(this.Url + "api/colour"); //find the api / controller file (contorller files do not have their 'controller' tag in their url's)
+  getList(): Observable<Icolour> {
+    return this.http.get<Icolour>(this.Url + "api/colour"); //find the api / controller file (contorller files do not have their 'controller' tag in their url's)
   }
 }

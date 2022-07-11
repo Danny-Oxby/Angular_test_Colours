@@ -1,12 +1,30 @@
 
-<h1>Hll,wrd</h1>
-
 <div>
-  <table *ngFor="let colour of colourlist">
+  <table>
     <tr>
+      <td> Colour </td>
+      <td>       </td>
+      <td> Value </td>
+    </tr>
+    <tr *ngFor="let colour of colourlist">
       <td> {{colour.colour}} </td>
       <td><span> - </span></td>
       <td> {{colour.hexvalue}} </td>
     </tr>
   </table>
+
+  <br />
+  <br />
+  <br />
+  <br />
+
+  <ul *ngIf="sampleList">
+    <li *ngFor="let sample of sampleList">
+      <h6> t: {{sample.sample_Id}} {{sample.sampleType}} </h6>
+    </li>
+  </ul>
+
+  <button (click)="CLickMethod()">Testing Post click event</button>
+
+  <p> {{clicktext}} </p>
 </div>
