@@ -1,1 +1,21 @@
-<p>number works!</p>
+<label>Text Input : </label>
+<input type="text" id="ftext" name="ftext" maxlength="8" [(ngModel)]="ftext">
+<br>
+<br>
+<label>Number Input : </label>
+<input type="number" id="fnumber" name="fnumber" maxlength="9999" [(ngModel)]="fnumber">
+<br>
+<br>
+<label>Date Input : </label>
+<input type="date" id="fdate" name="fdate" [(ngModel)]="fdate">
+<br>
+<br>
+<!--<label>Email Input : </label>
+<input type="email" id="femail" name="femail" [(ngModel)]="femail">
+<br>
+<br>-->
+<label>Password Input : </label>
+<input type="password" id="fpassword" name="fpassword" [(ngModel)]="fpassword">
+<br>
+<br>
+<button (click)="Check()">inputcheck</button>
