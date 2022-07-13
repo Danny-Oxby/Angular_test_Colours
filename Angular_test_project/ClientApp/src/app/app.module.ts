@@ -11,6 +11,7 @@ import { ColourService } from './colour.service';
 import { NumberComponent } from './number/number.component';
 import { ColourComponent } from './colour/colour.component';
 import { TextComponent } from './text/text.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +20,18 @@ import { TextComponent } from './text/text.component';
     HomeComponent,
     NumberComponent,
     ColourComponent,
-    TextComponent
+    TextComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'login', component: LoginComponent },
+      { path: '', component: LoginComponent },
+      /*{ path: '', redirectTo: 'login', pathMatch: 'full' }, //alternative option*/
+      { path: 'home', component: HomeComponent },
       { path: 'number', component: NumberComponent },
       { path: 'colour', component: ColourComponent },
       { path: 'text', component: TextComponent },
