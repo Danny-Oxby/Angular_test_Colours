@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 
 @Component({
@@ -10,14 +11,18 @@ export class LoginComponent implements OnInit {
 
   ftext: string = '';
   fpassword: string = '';
-  loggedin: boolean = false;
+  loggedin: boolean = false; //is a vaild user logged in?
 
-  constructor(private login : LoginService) { }
+  constructor(private login: LoginService, private router: Router) { } //importing router allows the html link to be manipulated from the .ts file
 
   ngOnInit(): void {
   }
 
   attemptLogin(): void {
     this.loggedin = this.login.checkLogin(this.ftext, this.fpassword);
+
+    if (this.loggedin) {
+      this.router.navigateByUrl('/home');
+    }
   }
 }
