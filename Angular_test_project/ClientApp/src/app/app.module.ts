@@ -40,4 +40,4 @@ import { LoginComponent } from './login/login.component';
   providers: [ColourService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { } // temp https://codecraft.tv/courses/angular/routing/router-guards/ 
