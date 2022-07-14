@@ -7,7 +7,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { ColourService } from './colour.service';
 import { NumberComponent } from './number/number.component';
 import { ColourComponent } from './colour/colour.component';
 import { TextComponent } from './text/text.component';
@@ -39,7 +38,6 @@ import { AllowSignInAccessService } from './gaurds/allow-sign-in-access.service'
     ])
   ],
   providers: [
-    ColourService,
     AllowSignInAccessService //used as the authgaurd class (prevent routing when x is true)
   ],
   bootstrap: [AppComponent]
