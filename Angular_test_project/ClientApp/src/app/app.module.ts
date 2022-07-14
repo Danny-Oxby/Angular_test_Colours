@@ -12,6 +12,7 @@ import { NumberComponent } from './number/number.component';
 import { ColourComponent } from './colour/colour.component';
 import { TextComponent } from './text/text.component';
 import { LoginComponent } from './login/login.component';
+import { AllowSignInAccessService } from './gaurds/allow-sign-in-access.service';
 
 @NgModule({
   declarations: [
@@ -31,13 +32,16 @@ import { LoginComponent } from './login/login.component';
       { path: 'login', component: LoginComponent },
       { path: '', component: LoginComponent },
       /*{ path: '', redirectTo: 'login', pathMatch: 'full' }, //alternative option*/
-      { path: 'home', component: HomeComponent },
-      { path: 'number', component: NumberComponent },
-      { path: 'colour', component: ColourComponent },
-      { path: 'text', component: TextComponent },
+      { path: 'home', component: HomeComponent, canActivate : [AllowSignInAccessService] }, //define which gaurd method is called 
+      { path: 'number', component: NumberComponent, canActivate: [AllowSignInAccessService] },
+      { path: 'colour', component: ColourComponent, canActivate: [AllowSignInAccessService] },
+      { path: 'text', component: TextComponent, canActivate: [AllowSignInAccessService] },
     ])
   ],
-  providers: [ColourService],
+  providers: [
+    ColourService,
+    AllowSignInAccessService //used as the authgaurd class (prevent routing when x is true)
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { } // temp https://codecraft.tv/courses/angular/routing/router-guards/ 
+export class AppModule { }
