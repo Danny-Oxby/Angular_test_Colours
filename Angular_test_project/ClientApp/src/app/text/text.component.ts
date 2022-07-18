@@ -27,7 +27,7 @@ export class TextComponent implements OnInit {
     this.Text.getTwoInput("a", "b").subscribe(
       (response) => {
         this.thing = response; //returns the subsciption value as an object
-        this.thing = this.thing;
+        this.clicktext = this.thing;
       },
       (error) => {
         console.log(error);
@@ -38,12 +38,11 @@ export class TextComponent implements OnInit {
     this.Text.postString().subscribe(
       (response) => {
         this.thing = response[0]; //returns the subsciption value as an object
-        this.clicktext = this.thing;
+        this.clicktext += this.thing + " ";
       },
       (error) => {
         console.log(error);
       });
-
   }
 
 }
