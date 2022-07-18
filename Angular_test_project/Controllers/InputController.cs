@@ -28,33 +28,20 @@ namespace Angular_test_project.Controllers
         public IList<SampleModel> Get(int id)
         {
             return batch.GetAllBatchSample(id);
-            //List<SampleModel> value = new List<SampleModel>();
-            //try
-            //{
-            //    value = new List<SampleModel>(batch.GetAllBatchSample(id));
-            //}
-            //catch(Exception ex)
-            //{
-            //    _ = MessageBox.Show(ex.Message);
-            //}
+        }
+
+        [HttpGet]
+        [Route("GetTwoInput")] //require extra infomration for the http call 
+        public string Get(string value, string input) 
+        {
+            return "clicked - " + value + " " + input;
         }
 
         // POST api/<InputController>
         [HttpPost]
-        public void Post([FromBody] string value) //FromBody allows the values to be passed in as parameters, otherwise its passed in the route 
+        public string Post() 
         {
-        }
-
-        // PUT api/<InputController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<InputController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return "clicked";
         }
     }
 }

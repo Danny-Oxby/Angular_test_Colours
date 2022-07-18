@@ -23,12 +23,26 @@ export class TextComponent implements OnInit {
       (error) => {
         console.log(error);
       });
+
+    this.Text.getTwoInput("a", "b").subscribe(
+      (response) => {
+        this.thing = response; //returns the subsciption value as an object
+        this.thing = this.thing;
+      },
+      (error) => {
+        console.log(error);
+      });
   }
 
   CLickMethod() {
-    this.clicktext = "clicked";
-
-    this.Text.postString();
+    this.Text.postString().subscribe(
+      (response) => {
+        this.thing = response[0]; //returns the subsciption value as an object
+        this.clicktext = this.thing;
+      },
+      (error) => {
+        console.log(error);
+      });
 
   }
 
