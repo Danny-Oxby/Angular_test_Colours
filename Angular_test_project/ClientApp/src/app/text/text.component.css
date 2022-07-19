@@ -1,0 +1,12 @@
+.clickablecontainer{
+    border-bottom:1px solid black;
+    padding:1px;
+    margin:2px
+}
+
+.clickablecontainer:hover {
+  border-bottom: 1px solid black;
+  padding: 1px;
+  margin: 2px;
+  background-color: aliceblue;
+}

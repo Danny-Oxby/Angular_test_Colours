@@ -16,6 +16,7 @@ var SampleModel = /** @class */ (function () {
         this.sampleLabNotes = "";
         this.sampleAdminNotes = "";
         this.customerSampleReference = "";
+        this.expand = false;
     }
     return SampleModel;
 }());

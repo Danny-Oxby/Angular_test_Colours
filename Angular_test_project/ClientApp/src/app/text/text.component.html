@@ -1,8 +1,14 @@
 <app-nav-menu></app-nav-menu>
 <div class="container">
-  <ul *ngIf="sampleList">
+  <ul *ngIf="sampleList"> <!--display only if the list is not null-->
     <li *ngFor="let sample of sampleList">
-      <h6> t: {{sample.sample_Id}} {{sample.sampleType}} </h6> <!--all angular bound prpertys must be camel case as it can not recognise a captial as the starting letter-->
+      <div class="clickablecontainer" >
+        <!--swap the state of sample extended boolean-->
+        <h6 (click)="sample.expand=!sample.expand"> {{sample.sample_Id}} {{sample.sampleType}} </h6> <!--all angular bound prpertys must be camel case as it can not recognise a captial as the starting letter-->
+        <div [hidden]="!sample.expand?true:null">
+        approved : {{sample.approved}}
+        </div>
+      </div>
     </li>
   </ul>
 

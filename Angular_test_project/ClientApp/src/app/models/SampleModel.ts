@@ -1,6 +1,6 @@
 export interface ISampleModel {
 
-  SerialNumber: number;
+  serialNumber: number;
 
   sample_Id: number;
   sampleType: string;
@@ -15,10 +15,12 @@ export interface ISampleModel {
   sampleLabNotes: string;
   sampleAdminNotes: string;
   customerSampleReference: string;
+
+  expand: boolean;
 }
 
 export class SampleModel implements ISampleModel {
-  SerialNumber: number = 0;
+  serialNumber: number = 0;
   sample_Id: number = 0;
   sampleType: string = "";
   customerSampleWeigth: number = 0;
@@ -32,4 +34,5 @@ export class SampleModel implements ISampleModel {
   sampleAdminNotes: string = "";
   customerSampleReference: string = "";
 
+  expand: boolean = false;
 }
